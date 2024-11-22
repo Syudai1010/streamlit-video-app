@@ -1,25 +1,23 @@
 import streamlit as st
 
-# 動画ファイルのパスと表示名を設定
-videos = {
-    "Test Video 1": "C:/Users/鈴木脩大/Videos/test1.mp4",
-    "Test Video 2": "C:/Users/鈴木脩大/Videos/test2.mp4",
-    "Test Video 3": "C:/Users/鈴木脩大/Videos/test3.mp4",
+# Google Driveの動画リンクを再生可能な形式に変換
+video_links = {
+    "Video 1": "https://drive.google.com/uc?id=17r_7nOhtB5M2u3QI86vEWtPWgQG-e18C",
+    "Video 2": "https://drive.google.com/uc?id=1ESqo0wQF8jEq5sqZWbQ7OyreQh8E4bWF",
+    "Video 3": "https://drive.google.com/uc?id=1OVfIqaGQcfEupYCPJ1VF0roL9arx9jr6",
 }
 
 # アプリのタイトル
-st.title("動画再生アプリ")
+st.title("Google Drive 動画再生アプリ")
 
 # 動画選択のドロップダウンメニュー
-selected_video = st.selectbox("再生する動画を選択してください", list(videos.keys()))
+selected_video = st.selectbox("再生する動画を選択してください", list(video_links.keys()))
 
-# 選択された動画のパスを取得
-video_path = videos[selected_video]
+# 選択された動画のリンクを取得
+video_url = video_links[selected_video]
 
-# 動画の表示
-with open(video_path, "rb") as video_file:
-    video_bytes = video_file.read()
-    st.video(video_bytes)
+# 動画を再生
+st.video(video_url)
 
 # 簡単な説明
-st.write("上記のドロップダウンメニューから再生したい動画を選択してください。")
+st.write("Google Driveに保存された動画を選択して再生できます。")
