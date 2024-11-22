@@ -1,11 +1,9 @@
 import streamlit as st
+import json
 
-# Vimeoの埋め込みリンク
-video_links = {
-    "Vimeo Video 1": "https://player.vimeo.com/video/1032216683",
-    "Vimeo Video 2": "https://player.vimeo.com/video/1032216715",
-    "Vimeo Video 3": "https://player.vimeo.com/video/1032216750",
-}
+# JSONファイルの読み込み
+with open("videos.json", "r") as file:
+    video_links = json.load(file)
 
 # アプリのタイトル
 st.title("Vimeo 動画再生アプリ")
@@ -21,3 +19,4 @@ st.video(video_url)
 
 # 簡単な説明
 st.write("Vimeoに保存された動画を選択して再生できます。")
+
